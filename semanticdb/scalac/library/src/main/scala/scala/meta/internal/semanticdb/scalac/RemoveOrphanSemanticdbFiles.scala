@@ -14,7 +14,7 @@ object RemoveOrphanSemanticdbFiles {
     if (config.cleanup.isOff) return
     val sourceroot = config.sourceroot
     val targetroot = config.targetroot
-    val semanticdbroot = targetroot.resolve(SemanticdbPaths.semanticdbPrefix).toNIO
+    val semanticdbroot = SemanticdbPaths.semanticdbRoot(targetroot).toNIO
     if (!Files.exists(semanticdbroot)) return
 
     Files.walkFileTree(
